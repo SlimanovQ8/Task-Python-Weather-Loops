@@ -3,7 +3,8 @@
 # - Prints every element of the list
 def printer(elements):
     # Your code here
-    ...
+    for i in elements:
+        print(i)
 
 
 # to_celsius(temperatures)
@@ -15,7 +16,9 @@ def printer(elements):
 #   C = (F - 32) * (5/9)
 def to_celsius(temperatures):
     # Your code here
-    ...
+    for i in range(len(temperatures)):
+        temperatures[i] = (temperatures[i] - 32) * (5 / 9)
+    return temperatures
 
 
 # hottest_days(temperatures, threshold)
@@ -25,7 +28,12 @@ def to_celsius(temperatures):
 #   that exceed the threshold
 def hottest_days(temperatures, threshold):
     # Your code here
-    ...
+    newList = []
+    for i in range(len(temperatures)):
+        if temperatures[i] > threshold:
+            newList.append(temperatures[i])
+
+    return newList
 
 
 # log_hottest_days(temperatures, threshhold)
@@ -39,4 +47,7 @@ def hottest_days(temperatures, threshold):
 #       all previous functions
 def print_hottest_days(temperatures, threshhold):
     # Your code here
-    ...
+    temperatures = to_celsius(temperatures)
+    threshhold = (threshhold - 32) * (5 / 9)
+    newList = hottest_days(temperatures, threshhold)
+    printer(newList)
